@@ -36,7 +36,7 @@ const contents = [
 ];
 
 // Shape Component
-const Shape = ({ src, position }) => (
+const Shape = ({ src, position }: { src: any; position: any }) => (
     <img
         src={src}
         alt="Shape"
@@ -50,7 +50,7 @@ Shape.propTypes = {
 };
 
 // ContentItem Component
-const ContentItem = ({ item, index }) => (
+const ContentItem = ({ item, index }: { item: any; index: any }) => (
     <div
         className={`bg-${
             item.color
