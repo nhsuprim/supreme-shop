@@ -2,26 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: "Barlow", sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.drawer-side {
+    position: fixed;
+    z-index: 9999; /* Make sure the drawer is above other content */
+}
+
+/* Overlay behind the drawer */
+.drawer-overlay {
+    z-index: 9998; /* Slightly lower than drawer */
+}
+
+/* Ensure button is above other content */
+.drawer-button {
+    position: relative;
+    z-index: 10000;
+}
+
+/* Handle menu items inside the drawer */
+.menu {
+    z-index: 10000;
+}
+
+/* Hide button when drawer is open */
+.drawer-toggle:checked + .drawer-content .drawer-button {
+    display: none;
 }
